@@ -3,13 +3,23 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import { changeThemeDefaultColor } from "/@/utils/changeThemeColor";
-
+import { defineComponent, onMounted } from 'vue'
+import cloudbase from '@cloudbase/js-sdk'
 export default defineComponent({
-  name: "App",
+  name: 'App',
   setup() {
-    changeThemeDefaultColor();
+    onMounted(() => {
+      const tcb = cloudbase.init({
+        env: 'hello-cloudbase-1gb74wcc56f7348a',
+      })
+      const db = tcb.database()
+      db.collection('article')
+        .get()
+        .then((res) => {
+          // res.data 包含该记录的数据
+          console.log(res)
+        })
+    })
   },
-});
+})
 </script>
