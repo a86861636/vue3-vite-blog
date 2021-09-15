@@ -45,6 +45,10 @@ export const allowRouter: Array<any> = [
             path: '/adminArticle',
             component: components.adminArticle
         }]
+    }, {
+        name: 'editArticle',
+        path: '/editArticle',
+        component: components.editArticle
     }
 ]
 

@@ -188,7 +188,7 @@ export function encode(url: string): string {
 }
 
 /**
- * 两次解码url
+ * date对象专成string
  * @param Date 
  * @returns 
  */

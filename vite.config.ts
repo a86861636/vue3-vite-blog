@@ -36,6 +36,9 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
         },
         plugins: [
             vue()
-        ]
+        ],
+        optimizeDeps: {
+            include: ['@kangc/v-md-editor/lib/theme/vuepress.js'],
+        },
     }
 }

@@ -22,6 +22,7 @@ import { getArticleList } from '/@/tcb/api'
 export default defineComponent({
   setup() {
     let articleList: Ref<object[]> = ref([])
+    console.log(new Date().getTime().toString())
     onMounted(async () => {
       articleList.value = await getArticleList()
     })

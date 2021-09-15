@@ -1,5 +1,5 @@
 import { defineStore, Store } from 'pinia'
-export const useLayoutStore: Store<any> = defineStore({
+export const useAdminStore: Store<any> = defineStore({
     id: 'layout',
     state: (): any => ({
         // 用户信息
