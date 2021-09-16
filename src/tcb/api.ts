@@ -1,7 +1,12 @@
 import { resolve } from 'path'
 import { tcb, request, collection } from './index'
 
-export function uploadFile(file: object): Promise<object[]> {
+interface FileRes {
+    download_url: string
+    fileID: string
+    requestId: string
+}
+export function uploadFile(file: object): Promise<FileRes> {
     return new Promise((resolve, reject) => {
         tcb.uploadFile({
             cloudPath: 'blog/' + new Date().getTime() + file.name,
