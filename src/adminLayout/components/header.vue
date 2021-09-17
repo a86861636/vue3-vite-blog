@@ -29,7 +29,12 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-export default defineComponent({})
+export default defineComponent({
+  setup() {
+    const logout = () => {}
+    return { logout }
+  },
+})
 </script>
 
 <style lang="scss" scoped>

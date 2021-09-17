@@ -7,9 +7,9 @@
       <el-table-column prop="summary" label="概要"> </el-table-column>
       <el-table-column fixed="right" label="操作" width="100">
         <template #default="scope">
-          <el-button @click="toEdit(scope.row)" type="text" size="small"
-            >编辑</el-button
-          >
+          <router-link :to="'/editArticle/?article_id=' + scope.row._id">
+            <el-button type="text" size="small">编辑</el-button>
+          </router-link>
         </template>
       </el-table-column>
     </el-table>
@@ -22,14 +22,10 @@ import { getArticleList } from '/@/tcb/api'
 export default defineComponent({
   setup() {
     let articleList: Ref<object[]> = ref([])
-    console.log(new Date().getTime().toString())
     onMounted(async () => {
       articleList.value = await getArticleList()
     })
-    function toEdit() {
-      console.log('toEdit')
-    }
-    return { articleList, toEdit }
+    return { articleList }
   },
 })
 </script>

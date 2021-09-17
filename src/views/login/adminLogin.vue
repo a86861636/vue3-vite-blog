@@ -36,16 +36,16 @@
 
 <script lang="ts">
 import { defineComponent, reactive, ref } from 'vue'
-import { useAdminStore } from '/@/store/modules/admin'
 import { ElNotification } from 'element-plus'
 import { validate } from '/@/utils/formExtend'
+import { useLogin } from '/@/tcb/api'
+import router from '/@/router/index'
 
 const formRender = () => {
-  const { login } = useAdminStore()
   const title = '管理系统'
   let form = reactive({
-    name: 'admin',
-    pwd: 'admin',
+    name: '1612956183@qq.com',
+    pwd: 'a86861636',
   })
   const ruleForm = ref(null)
   const enterSubmit = (e: KeyboardEvent) => {
@@ -56,12 +56,20 @@ const formRender = () => {
   const onSubmit = async () => {
     let { name, pwd } = form
     if (!(await validate(ruleForm))) return
-    await login({ username: name, password: pwd })
-    ElNotification({
-      title: '欢迎',
-      message: '欢迎回来',
-      type: 'success',
-    })
+    if (await useLogin({ email: name, password: pwd })) {
+      router.push({ path: '/admin' })
+      ElNotification({
+        title: '欢迎',
+        message: '欢迎回来',
+        type: 'success',
+      })
+    } else {
+      ElNotification({
+        title: '错误',
+        message: '账密错误',
+        type: 'error',
+      })
+    }
   }
   const rules = reactive({
     name: [

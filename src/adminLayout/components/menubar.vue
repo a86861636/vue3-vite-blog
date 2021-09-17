@@ -13,8 +13,6 @@
       :collapse="isCollapse"
       background-color="#545c64"
       text-color="#fff"
-      @open="handleOpen"
-      @close="handleClose"
       :router="true"
     >
       <el-menu-item

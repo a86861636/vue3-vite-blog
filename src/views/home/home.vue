@@ -3,17 +3,13 @@
     <template v-for="item in articleList" :key="item.id">
       <article-item :post="item"></article-item>
     </template>
-    <div>
-      <input id="file" type="file" @change="getFile" />
-      <button @click="upload">上传</button>
-    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, onMounted, ref, Ref } from 'vue'
 import articleItem from './components/articleItem.vue'
-import { getArticleList, uploadFile } from '/@/tcb/api'
+import { getArticleList } from '/@/tcb/api'
 export default defineComponent({
   components: {
     articleItem,
@@ -32,11 +28,7 @@ export default defineComponent({
         file = files[0]
       }
     }
-    async function upload() {
-      console.log(file)
-      console.log(await uploadFile(file))
-    }
-    return { articleList, upload, getFile }
+    return { articleList, getFile }
   },
 })
 </script>

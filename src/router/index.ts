@@ -36,6 +36,7 @@ export const allowRouter: Array<any> = [
     }, {
         path: "/admin",
         name: "admin",
+        redirect: '/adminArticle',
         component: components.adminLayout,
         children: [{
             name: 'adminArticle',

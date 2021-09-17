@@ -1,5 +1,5 @@
 
-import { envId, collectionList, email, password } from './tcbConfig'
+import { envId, collectionList } from './tcbConfig'
 import cloudbase from '@cloudbase/js-sdk'
 
 
@@ -7,15 +7,10 @@ import cloudbase from '@cloudbase/js-sdk'
 const tcb: object = cloudbase.init({
     env: envId,
 })
+
+const auth: object = tcb.auth()
 const db: object = tcb.database()
 const request: object = tcb.callFunction
-
-tcb
-    .auth()
-    .signInWithEmailAndPassword(email, password)
-    .then((res) => {
-        console.log(res)
-    });
 
 const collection: object = function () {
     let obj = {}
@@ -37,6 +32,7 @@ const collection: object = function () {
 //     });
 export {
     tcb,
+    auth,
     request,
     collection
 }
