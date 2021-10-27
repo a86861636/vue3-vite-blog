@@ -40,5 +40,12 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
         optimizeDeps: {
             include: ['@kangc/v-md-editor/lib/theme/vuepress.js'],
         },
+        css: {
+            preprocessorOptions: {
+                scss: {
+                    additionalData: '@import "/@/assets/css/index.scss";@import "/@/assets/css/property.scss";'
+                }
+            }
+        }
     }
 }

@@ -6,13 +6,14 @@
       :class="{ show: show }"
       v-model="searchValue"
       type="text"
-      @click.stop=""
+      @click.stop
       @keyup.enter="search"
     />
   </div>
 </template>
 
-<script>
+<script lang="ts">import { AnyARecord } from "dns"
+
 export default {
   name: 'header-search',
   data() {

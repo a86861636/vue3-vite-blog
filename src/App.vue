@@ -2,12 +2,12 @@
   <router-view />
 </template>
 
-<script lang="ts">
-import { defineComponent, onMounted } from 'vue'
-export default defineComponent({
-  name: 'App',
-  setup() {
-    onMounted(() => {})
-  },
-})
+<script setup lang="ts">
+
 </script>
+
+<style>
+body {
+  margin: 0;
+}
+</style>

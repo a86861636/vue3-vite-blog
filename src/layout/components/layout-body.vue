@@ -1,15 +1,27 @@
 <template>
   <div id="layout-body">
-    <router-view></router-view>
+    <transition name="fade">
+      <router-view></router-view>
+    </transition>
     <back-top></back-top>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {}
 </script>
 
 <style>
+.fade-enter-active {
+  transition: all 1s ease;
+}
+.fade-leave-active {
+  transition: all 0s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 #layout-body {
   /* header = 80px */
   margin-top: 80px;

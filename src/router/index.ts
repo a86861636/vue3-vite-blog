@@ -22,8 +22,8 @@ export const allowRouter: Array<any> = [
             component: components.home
         }, {
             name: 'article',
-            path: '/article',
-            component: components.article
+            path: '/articleDetail',
+            component: components.articleDetail
         }, {
             name: 'search',
             path: '/search',
@@ -45,6 +45,13 @@ export const allowRouter: Array<any> = [
             },
             path: '/adminArticle',
             component: components.adminArticle
+        }, {
+            name: 'adminTag',
+            meta: {
+                title: '标签管理'
+            },
+            path: '/adminTag',
+            component: components.adminTag
         }]
     }, {
         name: 'editArticle',

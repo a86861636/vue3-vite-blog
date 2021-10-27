@@ -7,7 +7,7 @@
           :size="30"
           src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
         />
-        <div class="name">11</div>
+        <div class="name">{{ email }}</div>
         <i class="el-icon-arrow-down" />
       </div>
       <template #dropdown>
@@ -17,8 +17,7 @@
               href="https://github.com/hsiangleev/element-plus-admin"
               target="_blank"
               :underline="false"
-              >项目地址</el-link
-            >
+            >项目地址</el-link>
           </el-dropdown-item>
           <el-dropdown-item divided @click="logout">退出登录</el-dropdown-item>
         </el-dropdown-menu>
@@ -27,13 +26,14 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-export default defineComponent({
-  setup() {
-    const logout = () => {}
-    return { logout }
-  },
+<script setup lang="ts">
+import { onMounted, ref, Ref } from 'vue'
+import { useAdminStore } from '/@/store/modules/admin'
+const store = useAdminStore()
+const logout = store.logout
+let email: Ref<string> = ref('')
+onMounted(() => {
+  email.value = store.userInfo.email
 })
 </script>
 
@@ -52,6 +52,7 @@ export default defineComponent({
   flex-direction: row;
   align-items: center;
   padding: 0 20px;
+  cursor: pointer;
   .name {
     padding: 0 5px;
   }

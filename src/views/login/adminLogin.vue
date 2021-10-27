@@ -16,19 +16,14 @@
         </el-form-item>
 
         <el-form-item prop="pwd">
-          <el-input
-            placeholder="请输入密码"
-            v-model="form.pwd"
-            show-password
-          ></el-input>
+          <el-input placeholder="请输入密码" v-model="form.pwd" show-password></el-input>
         </el-form-item>
 
         <el-button
           type="primary"
           style="width: 100%; margin-bottom: 30px"
           @click.prevent="onSubmit"
-          >登录</el-button
-        >
+        >登录</el-button>
       </el-form>
     </div>
   </div>
@@ -45,7 +40,7 @@ const formRender = () => {
   const title = '管理系统'
   let form = reactive({
     name: '1612956183@qq.com',
-    pwd: 'a86861636',
+    pwd: '',
   })
   const ruleForm = ref(null)
   const enterSubmit = (e: KeyboardEvent) => {
@@ -57,12 +52,12 @@ const formRender = () => {
     let { name, pwd } = form
     if (!(await validate(ruleForm))) return
     if (await useLogin({ email: name, password: pwd })) {
-      router.push({ path: '/admin' })
       ElNotification({
         title: '欢迎',
         message: '欢迎回来',
         type: 'success',
       })
+      router.push({ path: '/admin' })
     } else {
       ElNotification({
         title: '错误',

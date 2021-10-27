@@ -8,7 +8,6 @@ import { pinia } from '/@/store'
 
 import 'element-plus/lib/theme-chalk/index.css'
 
-import '/@/assets/css/index.css'
 import '/@/assets/font/iconfont.css'
 
 import VMdEditor from '@kangc/v-md-editor';

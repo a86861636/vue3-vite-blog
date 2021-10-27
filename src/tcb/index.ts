@@ -21,18 +21,12 @@ const collection: object = function () {
     return obj
 }()
 
+const _: object = db.command
 
-
-// tcb
-//     .auth()
-//     .signUpWithEmailAndPassword('1158356429@qq.com', 'a86861636')
-//     .then((res) => {
-//         console.log(res)
-//         // 发送验证邮件成功
-//     });
 export {
     tcb,
     auth,
     request,
-    collection
+    collection,
+    _
 }

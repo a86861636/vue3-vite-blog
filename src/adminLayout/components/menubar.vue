@@ -1,27 +1,14 @@
 <template>
   <div class="menubar">
-    <!-- <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
-    <el-radio-button :label="false">展开</el-radio-button>
-    <el-radio-button :label="true">收起</el-radio-button>
-  </el-radio-group> -->
-    <!-- <div class="systemName">
-    {{systemName}}
-  </div> -->
     <el-menu
-      default-active="2"
+      :default-active="activeItem"
       class="el-menu"
       :collapse="isCollapse"
       background-color="#545c64"
       text-color="#fff"
       :router="true"
     >
-      <el-menu-item
-        v-for="(item, index) in menuList"
-        :key="index"
-        index="index"
-        :route="item.path"
-      >
-        <i class="el-icon-menu"></i>
+      <el-menu-item v-for="item in menuList" :key="item.path" :index="item.path" :route="item.path">
         <template #title>{{ item.meta.title }}</template>
       </el-menu-item>
     </el-menu>
@@ -29,10 +16,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, getCurrentInstance, ref, Ref } from 'vue'
+import { defineComponent, onMounted, ref, Ref } from 'vue'
 import router from '/@/router/index'
+import { useRoute } from 'vue-router'
 export default defineComponent({
   setup() {
+    const activeItem = useRoute().path
     const menuList: Ref<any> = ref([])
     const isCollapse = ref(false)
     onMounted(() => {
@@ -46,7 +35,7 @@ export default defineComponent({
       console.log('menuList.value')
       console.log(menuList.value)
     })
-    return { menuList, isCollapse }
+    return { menuList, isCollapse, activeItem }
   },
 })
 </script>

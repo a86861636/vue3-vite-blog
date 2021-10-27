@@ -1,18 +1,16 @@
 <template>
   <div id="search">
-    <template v-for="item in articleList" :key="item.id">
-      <article-item :post="item"></article-item>
-    </template>
+    <article-list></article-list>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, onMounted, ref } from 'vue'
-import articleItem from './components/articleItem.vue'
+import articleList from './components/articleList.vue'
 import { useRoute } from 'vue-router'
 export default defineComponent({
   components: {
-    articleItem,
+    articleList,
   },
   setup() {
     const articleList = ref([])

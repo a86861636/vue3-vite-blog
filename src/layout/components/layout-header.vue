@@ -7,7 +7,7 @@
     <div class="site-logo">
       <router-link to="/">
         <!-- <img src="@/assets/site-logo.svg" alt="" /> -->
-        <p class="site-name">Gblog</p>
+        <p class="site-name">个人网站</p>
       </router-link>
     </div>
     <div class="menus-btn" @click.stop="mobileShow = !mobileShow">Menus</div>
@@ -16,9 +16,15 @@
       :class="{ mobileShow: mobileShow }"
       @click.stop="mobileShow = !mobileShow"
     >
-      <div class="menu-item header-search"><header-search /></div>
-      <div class="menu-item"><router-link to="/">首页</router-link></div>
-      <div class="menu-item"><router-link to="/admin">后台</router-link></div>
+      <div class="menu-item header-search">
+        <header-search />
+      </div>
+      <div class="menu-item">
+        <router-link to="/">首页</router-link>
+      </div>
+      <div class="menu-item">
+        <router-link to="/admin">后台</router-link>
+      </div>
       <div class="mask"></div>
     </div>
   </div>
@@ -81,6 +87,7 @@ export default defineComponent({
   justify-content: space-between;
   align-items: center;
   transition: 0.3s all ease;
+  box-shadow: 0px 4px 2px -2px rgba(0, 0, 0, 0.1);
   -webkit-transition: 0.3s all ease;
   -moz-transition: 0.3s all linear;
   -o-transition: 0.3s all ease;
@@ -95,19 +102,7 @@ export default defineComponent({
 }
 
 .site-logo {
-  text-align: center;
-
-  img {
-    width: 60px;
-    height: 60px;
-  }
-
-  p.site-name {
-    font-size: 15px;
-    font-weight: bold;
-    position: relative;
-    top: -10px;
-  }
+  font-weight: bold;
 }
 .menus-btn {
   display: none;
@@ -159,7 +154,7 @@ export default defineComponent({
     -ms-transition: 0.6s all ease;
     &:before,
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       width: 0;
       height: 0;
@@ -179,7 +174,7 @@ export default defineComponent({
       position: relative;
       &:not(:last-child):after {
         /*position: absolute;*/
-        content: '';
+        content: "";
         width: 50%;
         height: 1px;
         color: #ff6d6d;
@@ -231,7 +226,7 @@ export default defineComponent({
       box-shadow: none;
       &:before,
       &:after {
-        content: '';
+        content: "";
         position: relative;
         width: 0;
         height: 0;
